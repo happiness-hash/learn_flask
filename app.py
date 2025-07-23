@@ -1,10 +1,20 @@
-from flask import Flask
+from flask import Flask,render_template
 from markupsafe import escape
 from flask import url_for
 app = Flask(__name__)
+name = 'Grey Li'
+movies = [
+    {'title':'My Neighbor Totoro','year':'1998'},
+    {'title':"A Perfect World",'year':'1993'}
+
+]
+
+# @app.route('/')
+# def hello():
+#     return '<h1>Hello Totoro!</h1><img src  "http://helloflask.com/totoro.gif">'
 @app.route('/')
-def hello():
-    return '<h1>Hello Totoro!</h1><img src  "http://helloflask.com/totoro.gif">'
+def index():
+    return render_template('index.html',name  = name ,movies = movies )
 @app.route('/user/<name>')
 def user_page(name):
     return f'User: {escape(name)}'
