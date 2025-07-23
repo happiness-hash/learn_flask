@@ -3,12 +3,15 @@
 <head>
     <meta charset = "utf-8">
     <title>{{name}}'s Watchlist</title>
+    <img src = "{{url_for('static',filename ='Favicon.jpg')}}">
+    <link rel = "stylesheet" href = "{{url_for('static',filename = 'style.css')}}" type = "text/css">
 </head>
 <body>
-    <h2>{{name}}‘s Watchlist</h2>
+    <h2><img alt = "Avatar"  class = "avatar" src = "{{url_for('static',filename = 'images/Avatar.jpg')}}">
+    {{name}}‘s Watchlist</h2>
     {#使用length过滤器获取movies的长度#}
     <p>{{movies|length}} Titles</p>
-    <ul>
+    <ul class = "movie-list">
         {%for movie in movies%}{#迭代movies变量#}
         <li>{{movie.title}} - {{movie.year}}</li>
         {%endfor%}
@@ -18,5 +21,6 @@
 
 
     </footer>
+    <img alt = "happy"  class = "totoro" src = "{{url_for('static',filename = 'images/happy.gif')}}">
 </body>
 </html>
